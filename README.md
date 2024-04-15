@@ -53,6 +53,10 @@ pnpm dev
 pnpm pack:vsix
 ```
 
+## Demo 视频
+
+[command demo](https://www.yuque.com/crper/blog/ithzqu45gd6y2ts5)
+
 ## 技术栈
 
 | 库名                                                  |  版本  |     说明 |
