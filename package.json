@@ -1,0 +1,109 @@
+{
+  "name": "vscode-webview-vite-vue-boilerplate",
+  "displayName": "vscode-webview-vite-vue-boilerplate",
+  "description": "vscode-webview-vite-vue-boilerplate",
+  "keywords": [
+    "vscode",
+    "webview",
+    "vite",
+    "vue",
+    "boilerplate"
+  ],
+  "version": "0.0.1",
+  "publisher": "crper",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "author": {
+    "name": "crper",
+    "url": "https://github.com/crper"
+  },
+  "repository": {
+    "url": "https://github.com/crper/vscode-webview-vite-vue-boilerplate",
+    "type": "git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-webview-vite-vue-boilerplate.pageShow",
+        "title": "vite-vue-boilerplate: Show Page"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "group": "navigation",
+          "command": "vscode-webview-vite-vue-boilerplate.pageShow"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "vscode-webview-vite-vue-boilerplate.pageShow",
+        "key": "cmd+g cmd+t",
+        "mac": "cmd+g cmd+t",
+        "win": "ctrl+g ctrl+t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "icon": "resource/extension-icon.svg",
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vite-panel-explorer",
+          "title": "Vite Vue Panel",
+          "icon": "resource/extension-icon.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "gte",
+        "contents": "Vite Panel Explorer , amazing !!! \n [View Content](command:vscode-webview-vite-vue-boilerplate.pageShow)"
+      }
+    ],
+    "views": {
+      "vite-panel-explorer": [
+        {
+          "id": "gte",
+          "name": "show vite panel "
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "install:all": "pnpm install && cd webview-ui && pnpm install",
+    "dev": "concurrently \"pnpm run dev:webview\" \"pnpm run watch\"",
+    "build": "pnpm run build:webview ",
+    "dev:web": "cd webview-ui && pnpm run dev",
+    "dev:webview": "cd webview-ui && pnpm run build:watch",
+    "build:webview": "cd webview-ui && pnpm run build",
+    "pack:vsix": "pnpm build && vsce package --no-dependencies",
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  }
+}
