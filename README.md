@@ -196,6 +196,13 @@ svgLoader({ defaultImport: 'component' }),
 
 ```
 
+### 路由模式
+
+因为内嵌 webview 不像浏览器有路由导航栏这些，一般 webview 没有前进后退的概念，这种我们的路由跳转优先采用内存路由（memory router）, 它非常适合需要完全控制历史堆栈的场景, 类似 Vue 或者 React 都有提供！！
+
+- [Vue Memory-mode](https://router.vuejs.org/guide/essentials/history-mode#Memory-mode)
+- [React Memory-mode](https://reactrouter.com/en/main/router-components/memory-router)
+
 ## 扩展指南
 
 VS Code 官方扩展指南
